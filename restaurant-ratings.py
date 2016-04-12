@@ -18,7 +18,12 @@ def add_user_ratings(restaurant_info):
     """Add new key value pair to the dictionary passed in. Return updated dictionary."""
 
     user_rest = raw_input("Please enter a restaurant name: ")
-    user_rating = int(raw_input("Please enter a rating for {}: ".format (user_rest)))
+    while True: 
+        try:
+            user_rating = int(raw_input("Please enter a rating for {}: ".format (user_rest)))
+            break
+        except ValueError:
+            print "Oops! That was not a valid number Try again..."
 
     restaurant_info[user_rest] = user_rating
 
